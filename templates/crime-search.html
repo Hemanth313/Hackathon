@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crime Search</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    :root {
+      --primary: #ff6b6b;
+      --secondary: #1e90ff;
+      --background: #f4f4f4;
+      --text: #222;
+      --card-bg: #ffffff;
+      --border-radius: 12px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .back-home {
+      padding: 1rem;
+    }
+
+    .back-home a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    text-align: center;
+    }
+
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      gap: 0.5rem;
+    }
+
+    .search-container input {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      border: 2px solid var(--primary);
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+    }
+
+    .search-container button {
+      padding: 0.8rem 1.2rem;
+      border: none;
+      background: var(--primary);
+      color: white;
+      font-size: 1rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .search-container button:hover {
+      background: #e63946;
+    }
+
+    #crimeHeatmap {
+      height: 400px;
+      margin-bottom: 2rem;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .crime-details {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+
+    .crime-details h3 {
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+
+    #crimeResults p {
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .search-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-container input, 
+      .search-container button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="back-home">
+  <a href="index.html" title="Go to Home">
+    <i class="fas fa-home" style="font-size: 1.5rem; color: var(--primary-dark);"></i>
+  </a>
+</div>
+
+
+  <div class="container">
+    <h1><i class="fas fa-search-location"></i> Crime Search</h1>
+    
+    <div class="search-container">
+      <input type="text" id="crimeSearch" placeholder="Enter location...">
+      <button onclick="searchCrime()"><i class="fas fa-search"></i></button>
+    </div>
+    
+    <div id="crimeHeatmap"></div>
+    
+    <div class="crime-details">
+      <h3><i class="fas fa-info-circle"></i> Crime Statistics</h3>
+      <div id="crimeResults">
+        <p>Search a location to view crime data</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

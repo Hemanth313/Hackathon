@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safety Tips - Women Safety App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #ff4d6d;
+      --primary-dark: #c9184a;
+      --secondary: #4361ee;
+      --dark: #212529;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--dark);
+      font-size: 2rem;
+      margin-top: 60px;
+    }
+
+    .back-home {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 999;
+    }
+
+    .back-home a {
+      text-decoration: none;
+    }
+
+    .notification-icon {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 999;
+    }
+
+    .notification-icon a {
+      text-decoration: none;
+    }
+
+    .search-container {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .search-container input {
+      flex: 1;
+      padding: 10px;
+      font-size: 1rem;
+      min-width: 220px;
+    }
+
+    .search-container button {
+      padding: 10px 15px;
+      background-color: var(--primary);
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .search-container button i {
+      font-size: 1rem;
+    }
+
+    .safety-tips-container {
+      margin-top: 30px;
+    }
+
+    .tip-category {
+      margin-bottom: 40px;
+    }
+
+    .tip-category h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .tip-category h2 i {
+      margin-right: 10px;
+      font-size: 1.5rem;
+    }
+
+    .tip-card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .tip-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .tip-card i {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .tip-card h3 {
+      color: var(--dark);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .tip-card ul {
+      padding-left: 20px;
+    }
+
+    .tip-card li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .search-container {
+        flex-direction: column;
+      }
+
+      .search-container button {
+        width: 100%;
+      }
+
+      .tip-card {
+        padding: 20px;
+      }
+
+      .tip-category h2 {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tip-card {
+        padding: 15px;
+        font-size: 0.95rem;
+      }
+
+      .tip-category h2 {
+        font-size: 1rem;
+      }
+
+      .tip-card h3 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Home icon -->
+  <div class="back-home">
+    <a href="index.html" title="Go to Home">
+        <i class="fas fa-home" style="font-size: 1.5rem; color: var(--primary-dark);"></i>
+    </a>
+    </div>
+
+
+  <div class="container">
+    
+    <h1><i class="fas fa-lightbulb"></i> Safety Tips</h1>
+
+    <div class="search-container">
+      <input type="text" id="tipSearch" placeholder="Search safety tips..." />
+      <button><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="safety-tips-container">
+      <!-- General Safety Tips -->
+      <div class="tip-category">
+        <h2><i class="fas fa-universal-access"></i> General Safety</h2>
+
+        <div class="tip-card">
+          <i class="fas fa-walking"></i>
+          <h3>Walking Alone</h3>
+          <ul>
+            <li>Stay in well-lit areas at night</li>
+            <li>Keep your phone charged and accessible</li>
+            <li>Walk confidently and be aware of your surroundings</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <i class="fas fa-car"></i>
+          <h3>Transportation</h3>
+          <ul>
+            <li>Check cab details before entering (number, driver photo)</li>
+            <li>Share ride details with trusted contacts</li>
+            <li>Sit behind the driver in cabs</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Emergency Preparedness -->
+      <div class="tip-category">
+        <h2><i class="fas fa-first-aid"></i> Emergency Preparedness</h2>
+
+        <div class="tip-card">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Phone Setup</h3>
+          <ul>
+            <li>Program emergency numbers into speed dial</li>
+            <li>Enable emergency SOS features on your phone</li>
+            <li>Keep location services enabled</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <i class="fas fa-people-arrows"></i>
+          <h3>Public Situations</h3>
+          <ul>
+            <li>Create a scene if harassed - shout, draw attention</li>
+            <li>Identify safe public places (police stations, hospitals)</li>
+            <li>Trust your instincts - if something feels wrong, leave</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Technology Tips -->
+      <div class="tip-category">
+        <h2><i class="fas fa-robot"></i> Technology Safety</h2>
+
+        <div class="tip-card">
+          <i class="fas fa-lock"></i>
+          <h3>Digital Security</h3>
+          <ul>
+            <li>Turn off location sharing in social media posts</li>
+            <li>Use strong, unique passwords for all accounts</li>
+            <li>Enable two-factor authentication</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <i class="fas fa-user-shield"></i>
+          <h3>App Safety</h3>
+          <ul>
+            <li>Only download apps from official stores</li>
+            <li>Review app permissions carefully</li>
+            <li>Log out of shared devices</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tipSearch = document.getElementById('tipSearch');
+      if (tipSearch) {
+        tipSearch.addEventListener('input', function () {
+          const searchTerm = this.value.toLowerCase();
+          const tipCards = document.querySelectorAll('.tip-card');
+
+          tipCards.forEach((card) => {
+            const text = card.textContent.toLowerCase();
+            card.style.display = text.includes(searchTerm) ? 'block' : 'none';
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

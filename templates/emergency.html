@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Contacts</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Vibrant Gradient Theme */
+    :root {
+      --primary: #ff4d6d;
+      --primary-dark: #c9184a;
+      --secondary: #4361ee;
+      --accent: #7209b7;
+      --dark: #212529;
+      --light: #f8f9fa;
+      --danger: #ef233c;
+      --success: #4cc9f0;
+      --warning: #f8961e;
+      --glass: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      line-height: 1.7;
+      color: var(--dark);
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      min-height: 100vh;
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .back-home {
+      padding: 1rem;
+    }
+
+    .back-home a {
+      text-decoration: none;
+      color: var(--primary-dark);
+      font-weight: bold;
+    }
+
+    h1 {
+        font-size: 1.7rem; /* reduced from 2rem */
+        font-weight: 800;
+        margin-bottom: 2rem;
+        position: relative;
+        
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 0 10px rgba(255, 77, 109, 0.3);
+    }
+
+
+    .search-container {
+      position: relative;
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: inset 5px 5px 10px rgba(0,0,0,0.1),
+                  inset -5px -5px 10px rgba(255,255,255,0.7);
+      padding-right: 4.5rem;
+    }
+
+    .search-container input:focus {
+      outline: none;
+      box-shadow: inset 8px 8px 15px rgba(0,0,0,0.1),
+                  inset -8px -8px 15px rgba(255,255,255,0.7),
+                  0 0 20px rgba(67, 97, 238, 0.3);
+    }
+
+    .search-container button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      padding: 0 1.5rem;
+      border: none;
+      border-radius: 0 50px 50px 0;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: white;
+      cursor: pointer;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+      padding: 2rem;
+      text-align: center;
+      width: 250px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-card i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .contact-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .call-btn {
+      background: linear-gradient(45deg, var(--success), var(--secondary));
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .call-btn:hover {
+      background: linear-gradient(45deg, var(--primary-dark), var(--accent));
+    }
+
+    .add-contact input {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 10px;
+      box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05),
+                  inset -2px -2px 5px rgba(255,255,255,0.7);
+    }
+
+    #addContactBtn {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    #addContactBtn:hover {
+      background: linear-gradient(45deg, var(--primary-dark), var(--accent));
+    }
+
+    @media (max-width: 768px) {
+      .contact-list {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="back-home">
+    <a href="index.html" title="Go to Home">
+        <i class="fas fa-home" style="font-size: 1.5rem; color: var(--primary-dark);"></i>
+    </a>
+    </div>
+
+
+  <div class="container">
+    <h1><i class="fas fa-address-book"></i>Emergency Contacts</h1>
+
+    <div class="search-container">
+      <input type="text" id="contactSearch" placeholder="Search contacts...">
+      <button><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="contact-list">
+      <div class="contact-card">
+        <i class="fas fa-police-box"></i>
+        <h3>Police</h3>
+        <p>100</p>
+        <button class="call-btn"><i class="fas fa-phone"></i> Call</button>
+      </div>
+
+      <div class="contact-card">
+        <i class="fas fa-ambulance"></i>
+        <h3>Ambulance</h3>
+        <p>108</p>
+        <button class="call-btn"><i class="fas fa-phone"></i> Call</button>
+      </div>
+
+      <div class="contact-card add-contact">
+        <i class="fas fa-user-plus"></i>
+        <h3>Add Contact</h3>
+        <input type="text" placeholder="Name" id="contactName">
+        <input type="tel" placeholder="Phone" id="contactPhone">
+        <button id="addContactBtn"><i class="fas fa-save"></i> Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple script to allow adding new contacts dynamically
+    document.getElementById('addContactBtn').addEventListener('click', function () {
+      const name = document.getElementById('contactName').value.trim();
+      const phone = document.getElementById('contactPhone').value.trim();
+
+      if (name && phone) {
+        const contactList = document.querySelector('.contact-list');
+        const newCard = document.createElement('div');
+        newCard.className = 'contact-card';
+        newCard.innerHTML = `
+          <i class="fas fa-user-circle"></i>
+          <h3>${name}</h3>
+          <p>${phone}</p>
+          <button class="call-btn"><i class="fas fa-phone"></i> Call</button>
+        `;
+        contactList.insertBefore(newCard, document.querySelector('.add-contact'));
+        document.getElementById('contactName').value = '';
+        document.getElementById('contactPhone').value = '';
+      }
+    });
+  </script>
+</body>
+</html>

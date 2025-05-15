@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notifications - Women Safety App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #ff4d6d;
+      --primary-dark: #cc3c59;
+      --accent: #ffb347;
+      --secondary: #ffc0cb;
+      --dark: #333;
+      --bg-light: #f9f9f9;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: var(--bg-light);
+    }
+
+    .back-home {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+    }
+
+    .back-home a {
+      text-decoration: none;
+      color: var(--primary-dark);
+      font-size: 1.5rem;
+    }
+
+    .notification-page {
+      max-width: 800px;
+      margin: 100px auto 40px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 10px rgba(255, 77, 109, 0.3);
+    }
+
+    .notification {
+      background: white;
+      border-left: 5px solid var(--primary);
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .notification i {
+      margin-right: 15px;
+      font-size: 1.4rem;
+      color: var(--primary-dark);
+      margin-top: 4px;
+    }
+
+    .notification-content {
+      flex: 1;
+    }
+
+    .notification-time {
+      font-size: 0.8rem;
+      color: gray;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 600px) {
+      .notification-page {
+        margin-top: 80px;
+        padding: 15px;
+      }
+
+      .notification i {
+        font-size: 1.2rem;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Home Icon -->
+  <div class="back-home">
+    <a href="index.html" title="Go to Home">
+        <i class="fas fa-home" style="font-size: 1.5rem; color: var(--primary-dark);"></i>
+    </a>
+    </div>
+
+  <!-- Notification Section -->
+  <div class="notification-page">
+    <h1><i class="fas fa-bell"></i> Notifications</h1>
+
+    <div class="notification">
+      <i class="fas fa-exclamation-circle"></i>
+      <div class="notification-content">
+        <strong>Emergency Alert Sent</strong>
+        <p>Your emergency message was sent successfully to your trusted contacts.</p>
+        <div class="notification-time">Just now</div>
+      </div>
+    </div>
+
+    <div class="notification">
+      <i class="fas fa-map-marker-alt"></i>
+      <div class="notification-content">
+        <strong>Location Shared</strong>
+        <p>Your location was shared with your emergency contacts.</p>
+        <div class="notification-time">10 minutes ago</div>
+      </div>
+    </div>
+
+    <div class="notification">
+      <i class="fas fa-shield-alt"></i>
+      <div class="notification-content">
+        <strong>Safety Tip of the Day</strong>
+        <p>Always keep emergency contacts on speed dial and your phone fully charged.</p>
+        <div class="notification-time">1 hour ago</div>
+      </div>
+    </div>
+
+    <div class="notification">
+      <i class="fas fa-bolt"></i>
+      <div class="notification-content">
+        <strong>Power Mode Alert</strong>
+        <p>Your phone battery is below 20%. Enable power-saving mode for longer support.</p>
+        <div class="notification-time">3 hours ago</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
